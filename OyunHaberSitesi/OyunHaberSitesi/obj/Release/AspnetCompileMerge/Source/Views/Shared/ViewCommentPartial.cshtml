@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+<link href="~/Content/news.css" rel="stylesheet" />
+
+<body>
+        <div class="container news-container">
+          @foreach (var item in Model)
+          {
+
+
+                <div class="comments-section">
+                    <h4>Yorumlar</h4>
+                    <div class="comment">
+                        <img src="~/images/co.png" alt="User Avatar" class="comment-avatar" />
+                        <p>
+                           @item.Com_text
+                        </p>
+                    </div>
+                </div>
+          }
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+
+}
+

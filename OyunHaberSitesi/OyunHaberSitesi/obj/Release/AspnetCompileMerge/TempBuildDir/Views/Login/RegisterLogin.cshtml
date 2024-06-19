@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oyun Yolcusu - Kayıt Ekranı</title>
+
+    <link href="~/Logincssjs/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Logincssjs/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+
+                <h2>Hos Geldiniz!</h2>
+                <p class="desc"><span>Oyun Yolcusu</span> Kayıt Ekranı</p>
+
+                <form action="/Login/RegisterLogin" method="post">
+                    <input type="text" class="form-input" name="user_name" placeholder="Username" />
+                    <input type="email" class="form-input" name="user_mail" placeholder="Email" />
+                    <input type="password" class="form-input" name="user_password" placeholder="Password" />
+                    <input type="hidden" class="form-input" name="user_writer" value="false" />
+                    <input type="hidden" class="form-input" name="user_regdate" value="@DateTime.Now" />
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term">
+                            <span><span></span></span><a href="#" class="term-service">Aydınlatma Metni</a> ve <a href="#" class="term-service">Üyelik Sözleşmesi</a>’nde değişiklik yapılmıştır. Devam etmeniz halinde Üyelik Sözleşmesi’ni
+                            kabul ettiğiniz ve kişisel verilerinizin Üyelik Sözleşmesi ile belirlenen Grup Şirketleri’ne ve yurt dışına Üyelik Sözleşmesi <a href="#" class="term-service">Açık Rıza Metni</a> kapsamında aktarılmasına açık rıza verdiğiniz kabul
+                            edilecektir.
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Kayıt Ol" />
+                        <a href="@Url.Action("Index", "Login")" class="btn border-dark">Giriş Yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script src="~/Logincssjs/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Logincssjs/js/main.js"></script>
+    <script src="~/Logincssjs/vendor/jquery/jquery-ui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Context-Web.config Connection String" description="Context Veritabanına erişmek için uygulama tarafından web.config'de kullanılan Bağlantı Dizesi." defaultValue="Server=tcp:oyunhabersitesi.database.windows.net,1433;Initial Catalog=OyunHaberSitesi;Persist Security Info=False;User ID=emirpolat44;Password=j835jJF7HLG3c2oJug ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\emirp\\source\\repos\\OyunHaberSitesi\\OyunHaberSitesi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Context']/@connectionString" />
+  </parameter>
+</parameters>

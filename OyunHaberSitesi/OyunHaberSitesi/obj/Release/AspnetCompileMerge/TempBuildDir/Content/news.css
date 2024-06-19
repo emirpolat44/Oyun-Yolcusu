@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.news-header {
+    text-align: center;
+    margin-top: 20px;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+    .news-header .news-image {
+        width: auto;
+        max-height: auto;
+    }
+
+    .news-header h2 {
+        font-size: 2.5rem;
+        color: #00b4d8;
+    }
+
+    .news-header h3 {
+        font-size: 2rem;
+    }
+
+.news-content {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    font-size: 1.5em;
+}
+
+.comments-section {
+    margin-top: 30px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.leave-comment {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+    .leave-comment form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+        .leave-comment form div {
+            flex: 1 1 100%;
+        }
+
+            .leave-comment form div label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .leave-comment form div input,
+            .leave-comment form div textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            .leave-comment form div textarea {
+                height: 100px;
+            }
+
+        .leave-comment form button {
+            padding: 10px 20px;
+            border: none;
+            background: #00b4d8;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .leave-comment form button:hover {
+                background: #0077a3;
+            }

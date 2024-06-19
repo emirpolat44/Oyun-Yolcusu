@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Comment
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Yorum Düzenleme Sayfası</h2>
+
+@using (Html.BeginForm("EditComment", "Comment", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Com_id)
+    @Html.HiddenFor(model => model.Com_uid)
+    @Html.HiddenFor(model => model.Com_news)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Com_text)
+        @Html.TextBoxFor(model => model.Com_text, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Com_approval)
+        @Html.TextBoxFor(model => model.Com_approval, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(model => model.Com_date)
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+}
+
+

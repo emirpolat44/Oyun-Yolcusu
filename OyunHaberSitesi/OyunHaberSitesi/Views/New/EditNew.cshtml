@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.New
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Haber düzenleme sayfası</h2>
+
+@using (Html.BeginForm("EditNew", "New", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.News_id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_writer)
+        @Html.TextBoxFor(model => model.News_writer, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_category)
+        @Html.TextBoxFor(model => model.News_category, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_topic)
+        @Html.TextBoxFor(model => model.News_topic, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_summary)
+        @Html.TextBoxFor(model => model.News_summary, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_content)
+        @Html.TextAreaFor(model => model.News_content, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_source)
+        @Html.TextBoxFor(model => model.News_source, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_image)
+        @Html.TextBoxFor(model => model.News_image, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.News_date)
+        @Html.TextBoxFor(model => model.News_date, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}

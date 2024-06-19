@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Comment
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<br />
+@using (Html.BeginForm("AddComment", "Comment", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Com_id)
+    @Html.HiddenFor(model => model.Com_uid)
+    @Html.HiddenFor(model => model.Com_news)
+    @Html.HiddenFor(model => model.Com_date)
+    <div class="leave-comment">
+        <h4>Yorumlar</h4>
+        <form action="SubmitComment" method="post">
+            <div class="align-baseline">
+                @Html.Label("Yorum ID")
+                @Html.TextAreaFor(model => model.Com_id, new { @class = "form-control" })
+            </div>
+            <div class="align-baseline">
+                @Html.Label("Yorum Kullanıcı ID")
+                @Html.TextAreaFor(model => model.Com_uid, new { @class = "form-control" })
+            </div>
+            <div class="align-baseline">
+                @Html.Label("Haber ID")
+                @Html.TextAreaFor(model => model.Com_news, new { @class = "form-control" })
+            </div>
+            <div class="align-baseline">
+                @Html.Label("Yorum Tarihi")
+                @Html.TextAreaFor(model => model.Com_date, new { @class = "form-control" })
+            </div>
+            <div class="align-baseline">
+                @Html.Label("Yorumunuz")
+                @Html.TextAreaFor(model => model.Com_text, new { @class = "form-control" })
+            </div>
+            <button href="~/Views/New/News.cshtml" type="submit" class="btn btn-primary">Paylaş</button>
+        </form>
+    </div>
+}

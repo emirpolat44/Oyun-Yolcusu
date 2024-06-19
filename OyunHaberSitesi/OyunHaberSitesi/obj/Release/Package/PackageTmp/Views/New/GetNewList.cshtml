@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<New>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<a href="@Url.Action("AddNew", "New")" class="btn btn-info">Yeni Haber Oluştur</a>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Writer</th>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>Summary</th>
+        <th>Content</th>
+        <th>Source</th>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.News_id</td>
+            <td>@item.News_writer</td>
+            <td>@item.News_category</td>
+            <td>@item.News_topic</td>
+            <td>@item.News_summary</td>
+            <td>@item.News_content</td>
+            <td>@item.News_source</td>
+            <td>@item.News_image</td>
+            <td>@item.News_date</td>
+            @*<td> <a href="#" class="btn btn-danger">Sil</a></td>
+                <td> <a href="#" class="btn btn-warning">Düzenle</a></td>*@
+            <td>
+                <form action="@Url.Action("DeleteNew", "New", new { id = item.News_id })" method="post">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </td>
+            <td>
+                <a href="@Url.Action("EditNew", "New", new { id = item.News_id })" class="btn btn-warning">Edit</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<br />

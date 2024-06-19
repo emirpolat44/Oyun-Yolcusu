@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.User
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Kullanıcı Düzenleme Sayfası</h2>
+
+@using (Html.BeginForm("EditUser", "User", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.User_id)
+    @Html.HiddenFor(model => model.User_regdate)
+    @Html.HiddenFor(model => model.User_writer)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_name)
+        @Html.TextBoxFor(model => model.User_name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_password)
+        @Html.TextBoxFor(model => model.User_password, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_mail)
+        @Html.TextBoxFor(model => model.User_mail, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+}
+
+

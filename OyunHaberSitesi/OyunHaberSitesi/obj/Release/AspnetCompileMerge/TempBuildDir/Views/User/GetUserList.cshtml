@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<User>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Mail</th>
+        <th>Admin</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*@Html.HiddenFor(model => model.User_password)*@
+            <td>@item.User_id</td>
+            <td>@item.User_name</td>
+            <td>@item.User_password</td>
+            <td>@item.User_mail</td>
+            <td>@item.User_regdate</td>
+            @*<td> <a href="/AdminController/DeleteCategory/@item.Category_id" class="btn btn-danger">Sil</a></td>
+        <td> <a href="#" class="btn btn-warning">Düzenle</a></td>*@
+            <td>
+                <form action="@Url.Action("DeleteUser", "User", new { id = item.User_id })" method="post">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </td>
+            <td>
+            <a href="@Url.Action("EditUser", "User", new { id = item.User_id })" class="btn btn-warning">Düzenle</a>
+        </td>
+        </tr>
+    }
+
+</table>
+<br />

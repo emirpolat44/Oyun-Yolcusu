@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.New
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3 class="navbar-brand">Yeni Haber Ekleme Sayfası</h3>
+<br />
+@using (Html.BeginForm("AddNew", "New", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(model => model.News_id)
+            @Html.HiddenFor(model => model.News_date)
+            @Html.Label("Yazar")
+            @Html.TextBoxFor(x => x.News_writer, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_writer)
+            <br /> <br />
+            @Html.Label("Kategori ID")
+            @Html.TextBoxFor(x => x.News_category, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_category)
+            <br /> <br />
+            @Html.Label("Başlığı Yazınız")
+            @Html.TextBoxFor(x => x.News_topic, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_topic)
+            <br /> <br />
+            @Html.Label("Özeti Yazınız")
+            @Html.TextAreaFor(x => x.News_summary, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_summary)
+            <br /> <br />
+            @Html.Label("Haber")
+            @Html.TextAreaFor(x => x.News_content, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_content)
+            <br /> <br />
+            @Html.Label("Kaynağı Yazınız")
+            @Html.TextBoxFor(x => x.News_source, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_source)
+            <br /> <br />
+            @Html.Label("Haber Resmi URL")
+            @Html.TextBoxFor(x => x.News_image, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.News_image)
+            <br /> <br />
+            <button class="btn btn-info">Kaydet</button>
+        </div>
+    </div>
+}

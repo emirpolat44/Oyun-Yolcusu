@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Comment
+
+<link href="~/Content/news.css" rel="stylesheet" />
+
+<body>
+    <div class="container news-container">
+        @using (Html.BeginForm("AddComment", "Comment", FormMethod.Post))
+        {
+            <div class="leave-comment">
+                <h4>Yorumlar</h4>
+                <form action="SubmitComment" method="post">
+                    <div>
+                        <label for="message">Yorumunuz</label>
+                        <textarea id="message" name="message"></textarea>
+
+                        @Html.LabelFor(model => model.Com_text)
+                        @Html.TextAreaFor(model => model.Com_text, new { @class = "form-control", rows = "3" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Paylaş</button>
+                </form>
+            </div>
+        }
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

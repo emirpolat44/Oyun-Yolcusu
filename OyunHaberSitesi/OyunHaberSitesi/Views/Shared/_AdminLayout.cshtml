@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Oyun Yolcusu - Güncel Oyun Haberleri</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="~/Content/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="@Url.Action("Index", "Admin")">Oyun Yolcusu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="@Url.Action("GetNewList", "New")">Haber Paneli</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="@Url.Action("GetCategoryList", "Category")">Kategori Paneli</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="@Url.Action("GetCommentList", "Comment")">Yorum Paneli</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="@Url.Action("GetUserList", "User")">Kullanıcı Paneli</a></li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn">
+                        @if (Session["User_name"] != null)
+                        {
+                            <span class="navbar-text">@Session["User_name"]</span>
+                        }
+                    </button>
+                    @*<button class="btn btn-outline-dark" type="submit">
+                            Kayıt Ol
+                        </button>
+                        <button class="btn btn-outline-dark" type="submit">
+                            Giriş Yap
+                        </button>*@
+                </form>
+            </div>
+            @using (Html.BeginForm("Logout", "Login", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                <button type="submit" class="btn btn-warning">Çıkış Yap</button>
+            }
+        </div>
+    </nav>
+
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h4 class="display-4 fw-bolder">Admin Paneli</h4>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        @RenderBody();
+    </div>
+
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Oyun Yolcusu 2024</p></div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/scripts.js"></script>
+</body>
+</html>

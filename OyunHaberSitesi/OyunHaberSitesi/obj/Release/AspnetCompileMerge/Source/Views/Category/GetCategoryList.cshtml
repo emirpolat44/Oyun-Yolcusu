@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Desc</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+                <tr>
+                    <td>@item.Category_id</td>
+                    <td>@item.Category_name</td>
+                    <td>@item.Category_desc</td>
+                    @*<td> <a href="/AdminController/DeleteCategory/@item.Category_id" class="btn btn-danger">Sil</a></td>
+        <td> <a href="#" class="btn btn-warning">Düzenle</a></td>*@
+                    <td>
+                        <form action="@Url.Action("DeleteCategory", "Category", new { id = item.Category_id })" method="post">
+                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                            <button type="submit" class="btn btn-danger">Sil</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditCategory", "Category", new { id = item.Category_id })" class="btn btn-warning">Düzenle</a>
+                    </td>
+                </tr>
+            }
+
+</table>
+<br/>
+<a href="@Url.Action("AddCategory", "Category")" class="btn btn-info">Yeni Kategori</a>

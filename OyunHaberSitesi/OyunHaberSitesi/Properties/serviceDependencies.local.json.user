@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2024-05-27T18:30:14.3516186Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2024-05-27T18:29:20.0711971Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "96f2918f-7896-43d5-a46d-8af89f1ef50c"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "oyunHaberSitesi"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\EntityLayer",
+    "\\EntityLayer\\bin",
+    "\\EntityLayer\\Concrete",
+    "\\OyunHaberSitesi",
+    "\\OyunHaberSitesi\\Views",
+    "\\OyunHaberSitesi\\Views\\Admin",
+    "\\OyunHaberSitesi\\Views\\Login"
+  ],
+  "SelectedNode": "\\OyunHaberSitesi\\Views\\Login\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,123 @@
+﻿@model EntityLayer.Concrete.New
+
+@{
+    ViewBag.Title = "Haber Sayfası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/Content/news.css" rel="stylesheet" />
+    <style>
+        .news-container {
+            margin-top: 50px;
+        }
+
+        .news-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .news-content {
+            margin-top: 20px;
+        }
+
+        .news-title {
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .news-body {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container news-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <img src="@Model.News_image" class="card-img-top news-image" />
+                    <div class="blog-info-middle">
+                        <a>Yazar :</a><a href="#!">@Model.News_writer       |</a><a>Haber Tarihi:</a><a href="#!">         @(((DateTime)Model.News_date).ToString("dd MMMMMMM yyyy"))</a>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title news-title">@Model.News_topic</h1>
+                        <div class="card-text news-body">@Model.News_content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="comments-section">
+        <h4>Yorumlar</h4>
+        <div class="comment">
+            <img src="~/images/co.png" alt="User Avatar" class="comment-avatar" />
+            <p>
+                Bu güzel bir haber, umarım valve devamını getirir.
+            </p>
+        </div>*@
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <h2>Yorumlar</h2>
+        <div id="comments">
+            @*<strong><img src="/images/co.png" class="comment-avatar"> Emir :</strong> <a>kesin hile dolu bir oyun olur bu oyun.</a>*@
+        </div>
+        <h3>Yorum Paylaş</h3>
+        <div class="form-group">
+            @*@Html.TextBox("UName", null, new { @class = "form-control", placeholder = "Kullanıcı Adınız" })<br />*@
+            <input type="hidden" id="UName" value="@Session["User_name"].ToString()" />
+            @Html.TextArea("content", null, new { @class = "form-control", placeholder = "Yorumunuz" })<br />
+            <button type="submit" id="submitComment" class="btn btn-primary">Yorumu Paylaş</button>
+        </div>
+
+        <script>
+            document.getElementById('submitComment').addEventListener('click', function () {
+                var UName = document.getElementById('UName').value;
+                var content = document.getElementById('content').value;
+
+                if (UName.trim() && content.trim()) {
+                    var commentSection = document.getElementById('comments');
+
+                    var newComment = document.createElement('div');
+                    newComment.classList.add('comment');
+
+                    var UElement = document.createElement('strong');
+
+                    var UImage = document.createElement('img');
+                    UImage.src = '/images/co.png';
+                    UImage.classList.add('comment-avatar');
+
+                    UElement.appendChild(UImage);
+                    UElement.appendChild(document.createTextNode(' ' + UName + ': '));
+
+                    var commentLink = document.createElement('a');
+                    commentLink.textContent = content;
+
+                    newComment.appendChild(UElement);
+                    newComment.appendChild(commentLink);
+
+                    commentSection.appendChild(newComment);
+
+                    document.getElementById('content').value = '';
+                }
+            });</script>
+    </div>
+</body>
+</html>

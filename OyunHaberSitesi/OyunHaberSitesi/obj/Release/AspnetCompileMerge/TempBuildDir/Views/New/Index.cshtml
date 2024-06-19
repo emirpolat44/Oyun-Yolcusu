@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EntityLayer.Concrete.New>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-dark text-white">
+
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img-top" src="@item.News_image" alt="..." />
+                            <h5 class="card-title mt-3">@item.News_topic</h5>
+                            <p class="card-title mt-3" style=" font-weight: bold; font-style: italic;">@item.News_writer -    @item.News_date.ToString("MMMM dd")</p>
+
+                            <p class="card-text">@item.News_summary</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="@Url.Action("News", "New", new { id = item.News_id })" class="btn btn-outline-dark" style="display: flex; justify-content: center ">Haberin İçeriği</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
